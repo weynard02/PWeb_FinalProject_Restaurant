@@ -41,17 +41,21 @@
     margin: 0 1rem;
   }
   
-  .navbar .navbar-nav a:hover {
+  .navbar .navbar-nav .nav-link:hover {
     color: var(--primary);
   }
   
-  .navbar .navbar-nav a::after {
+  .navbar .navbar-nav .nav-link::after {
     content: "";
     display: block;
     padding-bottom: 0.5rem;
     border-bottom: 0.1rem solid var(--primary);
     transform: scaleX(0);
     transition: 0.2s linear;
+  }
+
+  .navbar .navbar-nav .nav-link:hover::after {
+    transform: scaleX(0.5);
   }
   
 
