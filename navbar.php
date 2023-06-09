@@ -5,9 +5,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-menu nav-link" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#about">About</a>
@@ -18,20 +18,23 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Review</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-login" href="#">Login</a>
+        
+      </ul>
+      <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link cart" href="#"><i data-feather="shopping-cart"></i></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User
+            <i data-feather="user"></i>&nbsp; Nama User
           </a>
-          <ul class="dropdown-menu dropdown-menu-right">
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Register</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
-        
       </ul>
-        
     </div>
   </div>
 </nav>
