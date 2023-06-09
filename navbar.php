@@ -16,7 +16,7 @@
           <a class="nav-link" href="#">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Review</a>
+          <a class="nav-link" href="review.php">Review</a>
         </li>
         
       </ul>
