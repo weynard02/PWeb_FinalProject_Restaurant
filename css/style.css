@@ -18,7 +18,7 @@
     font-family: "Poppins", sans-serif;
     background-color: var(--bg);
     color: white;
-    min-height: 3000px;
+    /* min-height: 3000px; */
   }
   
   
@@ -125,13 +125,15 @@
   }
   /* About Section */
   .about,
-  .menu {
+  .menu,
+  .review {
     padding: 8rem 7% 1.4rem;
     margin-bottom: 3rem;
   }
   
   .about h2,
-  .menu h2 {
+  .menu h2,
+  .review h2 {
     text-align: center;
     font-size: 2.6rem;
     font-weight: bold;
@@ -139,7 +141,8 @@
   }
   
   .about h2 span,
-  .menu h2 span {
+  .menu h2 span,
+  .review h2 span {
     color: var(--primary);
   }
 
@@ -164,6 +167,55 @@
   }
 
 
+  /* Review Section*/
+  .review h2 {
+    margin-bottom: 2rem;
+    
+  }
+  .review p {
+    text-align: center;
+    font-weight: bold;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+  }
+
+  .review .card {
+    border-color: #025464;
+  }
+  .review .card .card-body {
+    background-color: #025464;
+    color:#F8F1F1;
+  }
+
+  .review .card .card-body .card-text {
+    font-weight: 700;
+  }
+
+  .review .card .card-body .card-text span {
+    font-weight: 700;
+    color:#E57C23
+  }
+
+  .review .card .card-body .cta {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    color: black;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    text-decoration: none;
+  }
+  
+  .review .card .card-body .cta:hover {
+    color:#F8F1F1;
+    transition: 0.3s;
+    transform: scale(1.1);
+  }
+
   /* Animation */
   .reveal {
     position: relative;
@@ -178,6 +230,8 @@
   }
 
   
+  /* Bootstraps override */
+
   /* Media Queries */
   
   /* Laptop */

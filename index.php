@@ -18,8 +18,6 @@
       rel="stylesheet"
     />
 
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
@@ -73,27 +71,31 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque sunt porro voluptatem ab ipsa inventore itaque illo aut et quam!</p>
       <div class="card-group">
         <!-- <?php
-          $sql = "SELECT * from products";
-          $query = mysqli_query($db, $sql);
-          while ($product = mysqli_fetch_array($query)) {
-            echo '<div class="card">
-              <img src="/img/'.$product['image'].'" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">'.$product['name'].'</h5>
-             </div>';
-          }
+          // $sql = "SELECT * from products";
+          // $query = mysqli_query($db, $sql);
+          // while ($product = mysqli_fetch_array($query)) {
+          //   echo '<div class="card">
+          //     <img src="/img/'.$product['image'].'" class="card-img-top">
+          //     <div class="card-body">
+          //       <h5 class="card-title">'.$product['name'].'</h5>
+          //    </div>';
+          // }
         ?> -->
       </div>
     </section>
     <!-- Menu Section end -->    
-        
-    <!-- Feather Icons -->
-    <script>
-      feather.replace();
-    </script>
 
-    <!-- My Javascript -->
-    
+    <!-- Review Section start -->
+    <section id="review" class="review reveal">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2 class="card-title">Review <span>Us</span></h2>
+          <p class="card-text">I know you like it!</p>
+          <a href="#" class="cta">Rate Us!</a>
+        </div>
+      </div>
+    </section>
+      <!-- Review Section end -->
      
     
   </body>
