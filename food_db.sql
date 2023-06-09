@@ -5,21 +5,6 @@ SET time_zone = "+00:00";
 
 -- Database: `food_db`
 
--- Table structure for table `admin`
-
-
-CREATE TABLE `admin` (
-  `id` int(100) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(1, 'admin', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
-
-
 -- Table structure for table `cart`
 
 
@@ -37,12 +22,10 @@ CREATE TABLE `cart` (
 -- Table structure for table `messages`
 
 
-CREATE TABLE `messages` (
+CREATE TABLE `reviews` (
   `id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `number` varchar(12) NOT NULL,
+  `rate` int(100) NOT NULL,
   `message` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -85,19 +68,20 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `number` varchar(10) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `address` varchar(500) NOT NULL
+  `address` varchar(500) NOT NULL,
+  `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `address`, `role`) VALUES
+(1, 'admin', 'admin@gmail.com', '123456789', 'pwadmin', 'Jalan Admin', 'admin');
 
 
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 
-ALTER TABLE `messages`
+ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`);
 
 
@@ -113,14 +97,10 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 
-ALTER TABLE `admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
-
 ALTER TABLE `cart`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `messages`
+ALTER TABLE `reviews`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `orders`
