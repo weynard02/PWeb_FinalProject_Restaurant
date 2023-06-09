@@ -120,7 +120,8 @@
     transform: scale(1.1);
   }
   /* About Section */
-  .about {
+  .about,
+  .menu {
     padding: 8rem 7% 1.4rem;
     margin-bottom: 3rem;
   }
@@ -139,6 +140,7 @@
   }
 
   .about h3 {
+    margin-top: 2rem;
     margin-bottom: 3rem;
     font-size: 2rem;
     font-weight: 700;
@@ -174,7 +176,7 @@
   
   /* Media Queries */
   
-  /* Laptop
+  /* Laptop */
   @media (max-width: 1366px) {
     html {
       font-size: 75%;
@@ -182,73 +184,17 @@
   }
   
   /* Tablet */
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
     html {
       font-size: 62.5%;
     }
-  
-    #hamburger-menu {
-      display: inline-block;
-    }
-  
-    .navbar .navbar-nav {
-      position: absolute;
-      top: 100%;
-      right: -100%;
-      background-color: white;
-      width: 30rem;
-      height: 100vh;
-      transition: 0.3s;
-    }
-  
-    .navbar .navbar-nav.active {
-      right: 0;
-    }
-  
-    .navbar .navbar-nav a {
-      color: var(--bg);
-      display: block;
-      margin: 1.5rem;
-      padding: 0.5rem;
-      font-size: 2rem;
-    }
-  
-    .navbar .navbar-nav a::after {
-      transform-origin: 0 0;
-    }
-  
-    .navbar .navbar-nav a:hover::after {
-      transform: scaleX(0.2);
-    }
-  
-    .about .row {
-      flex-wrap: wrap;
-    }
-  
-    .about .row .about-img img {
-      height: 24rem;
-      object-fit: cover;
-      object-position: center;
-    }
-  
-    .about .row .content {
-      padding: 0;
-    }
-  
-    .about .row .content h3 {
-      margin-top: 1rem;
-      font-size: 2rem;
-    }
-  
-    .about .row .content p {
-      font-size: 1.6rem;
-    }
-  } */
+
+  } 
   
   /* Mobile Phone */
-  /* @media (max-width: 450px) {
+   @media (max-width: 450px) {
     html {
       font-size: 55%;
     }
-  } */ 
+  }
   

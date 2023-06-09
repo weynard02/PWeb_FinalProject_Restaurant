@@ -21,6 +21,7 @@
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 
     <!-- My style -->
@@ -47,10 +48,10 @@
       <h2><span>About</span> Us</h2>
 
       <div class="row">
-        <div class="col about-img">
-          <img src="img/tentang-kami.jpg" alt="Tentang Kami" />
+        <div class="col-lg-6 col-md-6 about-img">
+          <img src="img/tentang-kami.jpg" class="img-fluid" />
         </div>
-        <div class="col content">
+        <div class="col-lg-6 col-md-6 content">
           <h3>The Story of Success</h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo in
@@ -93,6 +94,6 @@
 
     <!-- My Javascript -->
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+     
     
   </body>
