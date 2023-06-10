@@ -49,7 +49,7 @@
                     while($menu = mysqli_fetch_array($query)) {
             ?>
 
-            <form action="proses-cart.php" method="post" class="box"> 
+            <form action="proses-update-cart.php" method="post" class="box"> 
                 <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                 <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                 <input type="hidden" name="price" value="<?= $menu['price']; ?>">
@@ -59,8 +59,9 @@
                 <div class="category"><?= $menu['category']; ?></div>
                 <div class="flex">
                     <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                    <input type="number" name="qty" class="qty" min="0" max="99" value="0" maxlength="2">
-                    <button class="cart" type="submit" name="add_to_cart"><i data-feather="plus"></i><i data-feather="shopping-cart"></i></button>
+                    <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
+                    <input type="number" name="quantity" class="qty" min="1" max="99" value="1" maxlength="2"> 
+                    <button class="cart" type="submit" name="update-cart"><i data-feather="plus"></i><i data-feather="shopping-cart"></i></button>
                 </div>
             </form>
             <?php

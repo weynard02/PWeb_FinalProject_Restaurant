@@ -8,7 +8,13 @@ if (isset($_POST['update-cart'])) {
     $pid = $_POST['pid'];
     $quantity = $_POST['quantity'];
 
-    mysqli_query($conn, "UPDATE cart SET quantity = '$quantity' WHERE user_id = '$userid' AND pid = '$pid'");
-    // $_SESSION['sukses'] = "Input menu succeed";
+    $row = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM cart WHERE user_id = '$userid' AND pid = '$pid'"));
+    if ($row){
+        mysqli_query($conn, "UPDATE cart SET quantity = quantity + '$quantity' WHERE user_id = '$userid' AND pid = '$pid'");
+    }
+    else {
+        mysqli_query($conn, "INSERT INTO cart VALUES ('', '$userid', '$pid', '$quantity')");
+    }
+
     header('Location: menu.php');
 }
