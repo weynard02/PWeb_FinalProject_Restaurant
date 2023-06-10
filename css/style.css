@@ -435,7 +435,36 @@
   background-color: var(--bg);
   color:var(--primary);
 }
-  
+
+  .products .box-container .box .sub-flex{
+    display: flex;
+    align-items: center;
+    gap:0.2rem;
+    margin-top: 1.5rem;
+  }
+  .products .box-container .box .sub-flex .sub-price{
+    font-size: 1.2rem;
+    color:var(--secondary);
+  }
+  .products .box-container .box .sub-flex .sub-price span{
+    color:var(--primary);
+    font-size: 1.4rem;
+ }
+
+  .products .box-container .box .sub-flex .sub-total {
+    background-color: var(--bg);
+    font-size: 1.4rem;
+    color: var(--secondary);
+
+  }
+
+
+  .input-total{
+    background-color: var(--bg);
+    font-weight: bold;
+    color: var(--secondary);
+  }
+
 
 
  .empty {

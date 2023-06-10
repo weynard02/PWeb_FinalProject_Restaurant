@@ -5,6 +5,12 @@
         exit;
     }
     include('config.php');
+    $sql = "select count(*) as amount from products";
+    $rs = mysqli_query($conn, $sql);
+    $row_total = mysqli_fetch_array($rs, MYSQLI_ASSOC);
+
+    $sql = "select id, price from products";
+    $rs = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +38,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
 
+    <script>
+        var data = new Array (<?php echo $row_total['amount']+1?>);
+        function calc(id, price) {
+            subtotal(id, price);
+            total(id, price);
+        }
+        function subtotal(id, price) {
+            var qty = parseInt(document.getElementById(id).value);
+            var sub_total = qty*price;
+            document.getElementById('sub-total-'+id).value = sub_total;
+        }
+
+        function total(id, price) {
+            
+            var qty = parseInt(document.getElementById(id).value);
+            data[id] = qty*price;
+            var total_price = 0;
+            for (a=1; a<= <?php echo $row_total['amount']?>; a++)
+            {
+                if(data[a]>0)
+                    total_price = parseInt(total_price) + parseInt(data[a]);
+            }
+            
+            document.getElementById('total').value = total_price;
+        }
+
+        window.onload = function() {
+            <?php
+            while ($rowfood = mysqli_fetch_array($rs, MYSQLI_ASSOC)){ ?>
+                subtotal(<?= $rowfood['id'] ?>, <?= $rowfood['price'] ?>);
+                total(<?= $rowfood['id'] ?>, <?= $rowfood['price'] ?>);
+            <?php } ?>
+        };
+    </script>
 
 </head>
 <body>
@@ -54,26 +94,42 @@
             ?>
 
                         <form action="" method="post" class="box"> 
+
                             <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                             <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                             <input type="hidden" name="price" value="<?= $menu['price']; ?>">
                             <input type="hidden" name="image" value="<?= $menu['image']; ?>">
+                            <script>
+                                    
+                            </script>
                             <img src="product-img/<?= $menu['image']; ?>">   
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
                                 <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                                <!-- <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $menu['quantity']; ?>" maxlength="2"> -->
-                                <input class="form-control" type="text" value="<?= $cart['quantity']; ?>" readonly>
+                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
+                                onchange="calc(<?= $menu['id']?>, <?= $menu['price']?>)"> 
+                                
                             </div>
                             
+                            <div class="sub-flex">
+                                <div class="sub-price">
+                                    Sub-total: <span>Rp.</span> 
+                                </div>
+                                <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" value="" readonly>
+                            </div>
+                            
+                            
                         </form>
+                        
             <?php
                     }
                 } else {
                     echo '<p class="empty">Sorry, we broke!</p>';
                 }
             ?>
+            
         </div>
+        <h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
         <a href="" class="btn-submit ms-5">Submit</a>
     </section>
     <script>
