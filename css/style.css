@@ -267,8 +267,8 @@
 
   /* Form */
    .form-custom {
-    margin: 5rem 30rem;
-    padding: 2rem 2rem;
+    margin: 5% 35%;
+    padding: 2% 2%;
     border: solid 2px black;
    }
    
@@ -318,12 +318,24 @@
       font-size: 62.5%;
     }
 
+    .form-custom {
+      margin: 5% 25%;
+      padding: 5% 5%;
+      border: solid 2px black;
+     }
+
   } 
   
   /* Mobile Phone */
    @media (max-width: 450px) {
     html {
       font-size: 55%;
+      
+      .form-custom {
+        margin: 5% 20%;
+        padding: 5% 5%;
+        border: solid 2px black;
+       }
     }
   }
   
