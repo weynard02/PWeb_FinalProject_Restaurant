@@ -283,7 +283,7 @@
     color: var(--primary);
    }
 
-   .btn-submit {
+   .btn-submit, .btn-delete {
     margin-top: 1rem;
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -296,13 +296,21 @@
     text-decoration: none;
    }
 
-   .btn-submit:hover {
+   .btn-submit:hover,
+   .btn-delete:hover {
     background-color: #c46b1e;
     transition: 0.2s;
    }
 
-   /* Review Secton */
-   .review .box-container {
+   /* See-Review Secton */
+   .see-review h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+   }
+
+   .see-review .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 33rem);
     gap:1.5rem;
@@ -310,8 +318,8 @@
     align-items: flex-start;
   }
 
-  .review .box-container .box{
-    background-color: var(--bg);
+  .see-review .box-container .box{
+    background-color: var(--secondary);
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); 
     border: .2rem solid black;
@@ -319,15 +327,31 @@
     padding-top: 1rem;
  }
  
- .review .box-container .box p{
+ .see-review .box-container .box p{
     padding: .5rem 0;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 400;
     color: black;
  }
  
- .review .box-container .box p span{
+ .see-review .box-container .box p span{
     color:var(--primary);
  }
+
+ .empty {
+    border:.2rem solid black;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    font-weight: bold;
+    padding:1.5rem;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    text-transform: capitalize;
+    color:var(--primary);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  }
+
   
   /* Bootstraps override */
 
