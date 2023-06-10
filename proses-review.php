@@ -10,7 +10,7 @@ if (isset($_POST['review'])){
 
     if ($userid == '' || $rate == '' || $message == ''){
         $_SESSION['failed'] = "Review is not completed!";
-        header('Location: message-form.php');
+        header('Location: review.php');
         exit;
     }
     
