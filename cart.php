@@ -106,7 +106,7 @@
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
                                 <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
+                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="0" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
                                 onchange="calc(<?= $menu['id']?>, <?= $menu['price']?>)"> 
                                 
                             </div>
