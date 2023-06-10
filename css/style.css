@@ -17,7 +17,7 @@
   body {
     font-family: "Poppins", sans-serif;
     background-color: var(--bg);
-    color: white;
+    color: var(--secondary);
     /* min-height: 3000px; */
   }
   
@@ -265,6 +265,41 @@
     transition: all 2s ease
   }
 
+  /* Form */
+   .form-custom {
+    margin: 5rem 30rem;
+    padding: 2rem 2rem;
+    border: solid 2px black;
+   }
+   
+   .form-custom h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+   }
+
+   .form-custom h2 span {
+    color: var(--primary);
+   }
+
+   .btn-submit {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: var(--primary);
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); 
+    text-decoration: none;
+   }
+
+   .btn-submit:hover {
+    background-color: #c46b1e;
+    transition: 0.2s;
+   }
   
   /* Bootstraps override */
 
