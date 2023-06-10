@@ -27,7 +27,7 @@ if (isset($_POST['input-menu'])) {
             header('Location: menu.php');
         } else {
             $_SESSION['failed'] = "Error cannot store image!";
-            header('Location: goblok.php');
+            header('Location: input-menu.php');
             exit;
         }
     }

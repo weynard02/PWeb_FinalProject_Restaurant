@@ -69,6 +69,16 @@
         <div class="mb-3">
             <input class="btn-submit" type="submit" value="Submit" name="input-menu" />
         </div>
+        <div class="mb-3">
+            <?php
+                if (isset($_SESSION['failed'])) {
+                    echo '<div class="alert alert-warning" role="alert">
+                    '.$_SESSION['failed'].'
+                    </div>';
+                    unset($_SESSION['failed']);
+                }
+            ?>
+        </div>
     </form>
 
     <script>

@@ -13,7 +13,7 @@
           <a class="nav-link" href="index.php#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Menu</a>
+          <a class="nav-link" href="menu.php">Menu</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="review.php">Review</a>
@@ -22,7 +22,7 @@
       </ul>
       <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link cart" href="#"><i data-feather="shopping-cart"></i></a>
+          <a class="nav-link cart" href="cart.php"><i data-feather="shopping-cart"></i></a>
         </li>
         <?php
           if (isset($_SESSION['user_id'])){
