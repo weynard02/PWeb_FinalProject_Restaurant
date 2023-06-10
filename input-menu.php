@@ -46,13 +46,13 @@
     <?php
         include('navbar.php');
     ?>
-    <form class="form-custom" action="">
+    <form class="form-custom" action="proses-input-menu.php" method="post" enctype="multipart/form-data">
         <h2>Input <span>Menu</span></h2>
         <div class="mb-3">
             <input type="text" class="form-control" name="name" placeholder="Product Name" required>
         </div>
         <div class="mb-3">
-            <select name="catagory" class="form-select">
+            <select name="category" class="form-select">
                 <option selected value=""> Select Category </option>
                 <option value="food"> Food </option>
                 <option value="drink"> Drink </option>
@@ -67,7 +67,7 @@
             <input type="file" class="form-control" id="image" name="image"required>
         </div>
         <div class="mb-3">
-            <input class="btn-submit" type="submit" value="Submit" name="submit" />
+            <input class="btn-submit" type="submit" value="Submit" name="input-menu" />
         </div>
     </form>
 
