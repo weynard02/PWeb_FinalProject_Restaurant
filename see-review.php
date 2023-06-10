@@ -10,9 +10,20 @@
     $row = mysqli_fetch_assoc($sql);
     $role = $row['role'];
     if ($role != 'admin') {
-        header('Location: index.php');
+        header('Location: login-form.php');
         exit;
     }
+
+    if(isset($_GET['delete'])){
+        $did = $_GET['delete'];
+        $query = "DELETE from reviews where id = '$did'";
+        $msg = mysqli_query($conn, $query);
+        if (!$msg) {
+            die("Error executing query: " . mysqli_error($conn));
+        }
+        header('location:see-review.php');
+     }
+
 ?>
 
 <!DOCTYPE html>
@@ -44,35 +55,36 @@
 
 </head>
 <body>
-<section class="review reveal">
+    <?php include('navbar.php')?>
+    <section class="see-review">
 
-    <h1>Reviews</h1>
+        <h1>Reviews</h1>
 
-    <div class="box-container">
-        <?php
-        $sql = "SELECT * from reviews";
-        $query = mysqli_query($conn, $sql);
-        
-        if($select_messages->rowCount() > 0){
-            while($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)){
-    ?>
-    <div class="box">
-        <p> name : <span><?= $fetch_messages['name']; ?></span> </p>
-        <p> number : <span><?= $fetch_messages['number']; ?></span> </p>
-        <p> email : <span><?= $fetch_messages['email']; ?></span> </p>
-        <p> message : <span><?= $fetch_messages['message']; ?></span> </p>
-        <a href="messages.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn" onclick="return confirm('delete this message?');">delete</a>
-    </div>
-    <?php
+        <div class="box-container">
+            <?php
+            $sql = "SELECT users.name, users.number, users.email, reviews.* from reviews join users on reviews.user_id = users.id";
+            $query = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($query) > 0) {
+                while ($rev = mysqli_fetch_array($query)) {
+            ?>
+            <div class="box">
+                <p> name : <span><?= $rev['name']; ?></span> </p>
+                <p> number : <span><?= $rev['number']; ?></span> </p>
+                <p> email : <span><?= $rev['email']; ?></span> </p>
+                <p><i data-feather="star"></i> <span><?= $rev['rate']; ?>/5</span></p>
+                <p> message : <span><?= $rev['message']; ?></span> </p>
+                <a href="see-review.php?delete=<?= $rev['id']; ?>" class="btn-delete" onclick="return confirm('delete this review?');">Delete</a>
+            </div>
+            <?php
+                }
+            }else {
+                echo '<p class="empty">you have no messages</p>';
             }
-        }else{
-            echo '<p class="empty">you have no messages</p>';
-        }
-    ?>
+        ?>
 
-    </div>
+        </div>
 
-</section>
+    </section>
     <script>
       feather.replace()
     </script>
