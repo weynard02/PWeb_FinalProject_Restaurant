@@ -300,6 +300,34 @@
     background-color: #c46b1e;
     transition: 0.2s;
    }
+
+   /* Review Secton */
+   .review .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    gap:1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .review .box-container .box{
+    background-color: var(--bg);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); 
+    border: .2rem solid black;
+    padding:2rem;
+    padding-top: 1rem;
+ }
+ 
+ .review .box-container .box p{
+    padding: .5rem 0;
+    font-size: 1.8rem;
+    color: black;
+ }
+ 
+ .review .box-container .box p span{
+    color:var(--primary);
+ }
   
   /* Bootstraps override */
 
