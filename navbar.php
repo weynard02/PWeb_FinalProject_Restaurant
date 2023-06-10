@@ -46,7 +46,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i data-feather="user"></i>&nbsp; Guest
-              </a>
+                </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="login.php">Login</a></li>
                 <li><a class="dropdown-item" href="register.php">Register</a></li>
@@ -55,7 +55,11 @@
             ';
           }
         ?>
+        <li>
+        &nbsp;&nbsp;&nbsp;
+        </li>
       </ul>
+      
     </div>
   </div>
 </nav>

@@ -54,9 +54,9 @@
         <div class="mb-3">
             <select name="category" class="form-select">
                 <option selected value=""> Select Category </option>
-                <option value="food"> Food </option>
-                <option value="drink"> Drink </option>
-                <option value="desert"> Dessert </option>
+                <option value="Food"> Food </option>
+                <option value="Drink"> Drink </option>
+                <option value="Dessert"> Dessert </option>
             </select>
         </div>
         <div class="mb-3">
