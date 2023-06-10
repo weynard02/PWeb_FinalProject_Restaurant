@@ -47,11 +47,14 @@
                 $sql = "SELECT * from cart where user_id='$uid'";
                 $query = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($query) > 0) {
-                    while($menu = mysqli_fetch_array($query)) {
+                    while($cart = mysqli_fetch_array($query)) {
+                        $pid = $cart['pid'];
+                        $menu = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM products WHERE id = '$pid'"));
+                        
             ?>
 
                         <form action="" method="post" class="box"> 
-                            <input type="hidden" name="pid" value="<?= $menu['pid']; ?>">
+                            <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                             <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                             <input type="hidden" name="price" value="<?= $menu['price']; ?>">
                             <input type="hidden" name="image" value="<?= $menu['image']; ?>">
@@ -59,8 +62,8 @@
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
                                 <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                                <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $menu['quantity']; ?>" maxlength="2">
-
+                                <!-- <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $menu['quantity']; ?>" maxlength="2"> -->
+                                <input class="form-control" type="text" value="<?= $cart['quantity']; ?>" readonly>
                             </div>
                             
                         </form>

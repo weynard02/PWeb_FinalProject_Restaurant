@@ -49,7 +49,8 @@
                     while($menu = mysqli_fetch_array($query)) {
             ?>
 
-            <form action="" method="post" class="box"> 
+            <!-- <form action="" method="post" class="box">  -->
+            <div class="box">
                 <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                 <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                 <input type="hidden" name="price" value="<?= $menu['price']; ?>">
@@ -59,10 +60,44 @@
                 <div class="category"><?= $menu['category']; ?></div>
                 <div class="flex">
                     <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                    <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
-                    <button class="cart" type="submit" name="add_to_cart"><i data-feather="plus"></i><i data-feather="shopping-cart"></i></button>
+                    <?php
+                        $id = $_SESSION['user_id'];
+                        $menuid = $menu['id'];
+                        $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM cart WHERE user_id = '$id' AND pid = '$menuid'"));
+                        if ($row){
+                            if ($row['quantity'] > 1){
+                                echo '<form action="proses-update-cart.php" method="post">';
+                                echo '<input type="hidden" name="pid" value='. $menu['id'] .'/>';
+                                echo '<input type="hidden" name="quantity" value='. $row['quantity'] - 1 .'/>';
+                                echo '<button class="cart" type="submit" name="update-cart"><i data-feather="minus"></i></button>';
+                                echo '</form>';
+                            }
+                            else {
+                                echo '<form action="proses-delete-cart.php" method="post">';
+                                echo '<input type="hidden" name="pid" value='. $menu['id'] .'/>';
+                                echo '<button class="cart" type="submit" name="delete-cart"><i data-feather="minus"></i></button>';
+                                echo '</form>';
+                            }
+                            echo '<input class="form-control" type="text" value=' . $row['quantity'] . ' readonly>';
+
+                            echo '<form action="proses-update-cart.php" method="post">';
+                            echo '<input type="hidden" name="pid" value='. $menu['id'] .'/>';
+                            echo '<input type="hidden" name="quantity" value='. $row['quantity'] + 1 .'/>';
+                            echo '<button class="cart" type="submit" name="update-cart"><i data-feather="plus"></i></button>';
+                            echo '</form>';
+                        }
+                        else {
+                            echo '<form action="proses-insert-cart.php" method="post">';
+                            echo '<input type="hidden" name="pid" value='. $menu['id'] .'/>';
+                            echo '<button class="cart" type="submit" name="insert-cart"><i data-feather="plus"></i><i data-feather="shopping-cart"></i></button>';
+                            echo '</form>';
+                        }
+                    ?>
+                    <!-- <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2"> -->
+                    <!-- echo '<button class="cart" type="submit" name="add_to_cart"><i data-feather="plus"></i><i data-feather="shopping-cart"></i></button>'; -->
                 </div>
-            </form>
+            </div>
+            <!-- </form> -->
             <?php
                     }
                 } else {
