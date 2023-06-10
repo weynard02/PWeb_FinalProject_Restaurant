@@ -12,7 +12,10 @@ CREATE TABLE `cart` (
   `id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
   `pid` int(100) NOT NULL,
-  `quantity` int(10) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `price` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
