@@ -9,7 +9,7 @@
     $rs = mysqli_query($conn, $sql);
     $row_total = mysqli_fetch_array($rs, MYSQLI_ASSOC);
 
-    $sql = "select id, price from products";
+    $sql = "select products.id, products.price from products join cart on products.id = cart.pid";
     $rs = mysqli_query($conn, $sql);
 ?>
 
