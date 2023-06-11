@@ -93,7 +93,7 @@
                         
             ?>
 
-                        <form action="" method="post" class="box"> 
+                        <form action="proses-delete-cart.php" method="post" class="box"> 
 
                             <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                             <input type="hidden" name="name" value="<?= $menu['name']; ?>">
@@ -117,7 +117,8 @@
                                     Sub-total: <span>Rp.</span> 
                                 </div>
                                 <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" value="" size="18" readonly>
-                                <button type="submit" class="trash"><i data-feather="trash-2"></i></button>
+                                <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
+                                <button type="submit" class="trash" name="delete-cart"><i data-feather="trash-2"></i></button>
                             </div>
                             
                             
@@ -126,13 +127,17 @@
             <?php
                     }
                 } else {
-                    echo '<p class="empty">Sorry, we broke!</p>';
+                    echo '<p class="empty">No items in your cart!</p>';
                 }
             ?>
             
         </div>
-        <h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
-        <a href="" class="btn-submit position-relative top-50 start-50 translate-middle">Submit</a>
+        <?php
+            if (mysqli_num_rows($query) > 0){
+                echo '<h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
+                    <a href="" class="btn-submit position-relative top-50 start-50 translate-middle">Submit</a>';
+            }
+        ?>
     </section>
     <script>
       feather.replace()

@@ -8,6 +8,5 @@ if (isset($_POST['delete-cart'])) {
     $pid = $_POST['pid'];
 
     mysqli_query($conn, "DELETE FROM cart WHERE user_id = '$userid' AND pid = '$pid'");
-    // $_SESSION['sukses'] = "Input menu succeed";
-    header('Location: menu.php');
+    header('Location: cart.php');
 }
