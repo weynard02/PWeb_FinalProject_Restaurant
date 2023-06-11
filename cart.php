@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['user_id'])){
-        header('Location: login-form.php');
+        header('Location: login.php');
         exit;
     }
     include('config.php');
@@ -106,16 +106,18 @@
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
                                 <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="0" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
+                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
                                 onchange="calc(<?= $menu['id']?>, <?= $menu['price']?>)"> 
-                                
+
                             </div>
+                            
                             
                             <div class="sub-flex">
                                 <div class="sub-price">
                                     Sub-total: <span>Rp.</span> 
                                 </div>
-                                <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" value="" readonly>
+                                <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" value="" size="18" readonly>
+                                <button type="submit" class="trash"><i data-feather="trash-2"></i></button>
                             </div>
                             
                             
@@ -130,7 +132,7 @@
             
         </div>
         <h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
-        <a href="" class="btn-submit ms-5">Submit</a>
+        <a href="" class="btn-submit position-relative top-50 start-50 translate-middle">Submit</a>
     </section>
     <script>
       feather.replace()

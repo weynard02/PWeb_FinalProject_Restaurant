@@ -425,13 +425,15 @@
     color:black;
  }
 
- .products .box-container .box .flex .cart {
+ .products .box-container .box .flex .cart,
+ .products .box-container .box .sub-flex .trash {
     background-color: var(--bg);
     color:#F8F1F1;
     margin-right: 0;
  }
 
- .products .box-container .box .flex .cart:hover {
+ .products .box-container .box .flex .cart:hover,
+ .products .box-container .box .sub-flex .trash:hover {
   background-color: var(--bg);
   color:var(--primary);
 }
