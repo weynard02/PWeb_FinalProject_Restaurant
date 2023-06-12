@@ -44,7 +44,7 @@
 </head>
 <body>
     <?php
-        include('navbar.php');
+        include('admin-navbar.php');
     ?>
     <form class="form-custom" action="proses-input-menu.php" method="post" enctype="multipart/form-data">
         <h2>Input <span>Menu</span></h2>
