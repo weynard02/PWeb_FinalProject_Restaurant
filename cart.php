@@ -99,9 +99,6 @@
                             <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                             <input type="hidden" name="price" value="<?= $menu['price']; ?>">
                             <input type="hidden" name="image" value="<?= $menu['image']; ?>">
-                            <script>
-                                    
-                            </script>
                             <img src="product-img/<?= $menu['image']; ?>">   
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
@@ -135,7 +132,7 @@
         <?php
             if (mysqli_num_rows($query) > 0){
                 echo '<h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
-                    <a href="" class="btn-submit position-relative top-50 start-50 translate-middle">Submit</a>';
+                    <a href="checkout.php" class="btn-submit position-relative top-50 start-50 translate-middle">Checkout</a>';
             }
         ?>
     </section>
