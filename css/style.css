@@ -301,6 +301,24 @@
     transition: 0.2s;
    }
 
+   .btn-submit-2 {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: var(--primary);
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5); 
+    text-decoration: none;
+   }
+
+   .btn-submit-2:hover {
+    background-color: #c46b1e;
+    transition: 0.2s;
+   }
+
+
    /* See-Review Secton */
    .see-review h1 {
     text-align: center;
@@ -349,7 +367,7 @@
   color: var(--primary);
 }
 
-.products .box-container{
+.products .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 30rem);
   justify-content: center;
@@ -459,12 +477,75 @@
     color: var(--secondary);
 
   }
+  .checkout .box-container h1 {
+    font-weight: 700;
+    text-align: center;
+  }
 
+  .checkout .box-container h1 span {
+    color: var(--primary);
+  }
+
+  .checkout .box-container {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    margin: 5% 35%;
+    padding: 2% 2%;
+    border: solid 2px black;
+  }
+
+  .checkout .box-container p{
+    display: flex;
+    gap:1.5rem;
+    justify-content: space-between;
+    margin:1rem 0;
+    align-items: center;
+  }
+
+
+
+  .checkout .box-container p .sub-total{
+    text-align: right;
+    background-color: var(--bg);
+    color: #F8F1F1;
+  }
+
+  .checkout .box-container .form-custom-2 {
+    background-color: var(--bg);
+    color: #F8F1F1;
+  }
+ 
+
+  .checkout .box-container .form-costum-2 .input-total{
+    text-align: right;
+    background-color: var(--bg);
+    color: #F8F1F1;
+  }
+ 
 
   .input-total{
     background-color: var(--bg);
     font-weight: bold;
     color: var(--secondary);
+  }
+
+  .payment-option.ovo {
+    background-image: url(../img/payment/ovo.png);
+    background-repeat: no-repeat;
+    padding-left: 20px; /* Adjust as needed */
+  }
+
+  .payment-option.gopay {
+    background-image: url(../img/payment/gopay.png);
+    background-repeat: no-repeat;
+    padding-left: 20px; /* Adjust as needed */
+  }
+
+  .payment-option.shoppepay {
+    background-image: url(../img/payment/shoppepay.png);
+    background-repeat: no-repeat;
+    padding-left: 20px; /* Adjust as needed */
   }
 
 
