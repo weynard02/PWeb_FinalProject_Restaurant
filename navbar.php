@@ -34,7 +34,7 @@
                 <i data-feather="user"></i>&nbsp; Hi, '. $user['name'] .
               '</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="admin-menu.php">Admin Menu</a></li>
+                <li><a class="dropdown-item" href="admin-home.php">Admin Menu</a></li>
                 <li><a class="dropdown-item" href="proses-logout.php">Log out</a></li>
               </ul>
             </li>

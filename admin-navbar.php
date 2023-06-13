@@ -10,10 +10,10 @@
           <a class="nav-menu nav-link" aria-current="page" href="">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="input-menu.php">Input Menu</a>
+          <a class="nav-link" href="input-menu.php">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="menu.php">Menu</a>
+          <a class="nav-link" href="">History</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="see-review.php">See Review</a>

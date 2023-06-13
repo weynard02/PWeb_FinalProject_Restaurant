@@ -21,7 +21,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SubWey SuRazYo</title>
+    <title>Input Menu</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,7 +80,41 @@
             ?>
         </div>
     </form>
+    
+    <section id="products" class="products">
+        <h1>Our <span>Menu</span></h1>
 
+        <div class="box-container">
+            <?php
+                $sql = "SELECT * from products order by category desc";
+                $query = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($query) > 0) {
+                    while($menu = mysqli_fetch_array($query)) {
+            ?>
+
+            <form action="proses-delete-menu.php" method="post" class="box"> 
+                <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
+                <input type="hidden" name="name" value="<?= $menu['name']; ?>">
+                <input type="hidden" name="price" value="<?= $menu['price']; ?>">
+                <input type="hidden" name="image" value="<?= $menu['image']; ?>">
+                <img src="product-img/<?= $menu['image']; ?>">   
+                <div class="name"><?= $menu['name']; ?></div>
+                <div class="category"><?= $menu['category']; ?></div>
+                <div class="flex">
+                    <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
+                    <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+            <?php
+                    }
+                } else {
+                    echo '<p class="empty">Sorry, we broke!</p>';
+                }
+            ?>
+        </div>
+    </section>
+    
     <script>
       feather.replace()
     </script>
