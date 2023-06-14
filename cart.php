@@ -62,7 +62,7 @@
                     total_price = parseInt(total_price) + parseInt(data[a]);
             }
             
-            document.getElementById('total').value = total_price;
+            document.getElementById('total').value = 'Rp. ' + total_price;
         }
 
         window.onload = function() {
@@ -81,23 +81,25 @@
     ?>
    <section id="products" class="products">
         <h1>Your <span>Cart</span></h1>
-
-        <div class="box-container">
             <?php
                 $uid = $_SESSION['user_id'];
                 $sql = "SELECT * from cart where user_id='$uid'";
                 $query = mysqli_query($conn, $sql);
-                $quans = array();
+                // $quans = array();
                 if (mysqli_num_rows($query) > 0) {
+                    echo '<form action="proses-checkout-cart.php" method="post"> 
+                    <div class="box-container">';
+                    $i = 0;
                     while($cart = mysqli_fetch_array($query)) {
+                        $i++;
                         $pid = $cart['pid'];
-                        $quans[$cart['pid']] = $cart['quantity'];
+                        // $quans[$cart['pid']] = $cart['quantity'];
                         $menu = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM products WHERE id = '$pid'"));
                         
             ?>
 
-                        <form action="proses-delete-cart.php" method="post" class="box"> 
-
+                    
+                        <div class="box">
                             <input type="hidden" name="pid" value="<?= $menu['id']; ?>">
                             <input type="hidden" name="name" value="<?= $menu['name']; ?>">
                             <input type="hidden" name="price" value="<?= $menu['price']; ?>">
@@ -106,7 +108,7 @@
                             <div class="name"><?= $menu['name']; ?></div>
                             <div class="flex">
                                 <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
-                                <input type="number" id="<?= $menu['id'] ?>" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
+                                <input type="number" id="<?= $menu['id'] ?>" name="qty-<?= $menu['id']; ?>" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" 
                                 onchange="calc(<?= $menu['id']?>, <?= $menu['price']?>)"> 
 
                             </div>
@@ -117,12 +119,10 @@
                                     Sub-total: <span>Rp.</span> 
                                 </div>
                                 <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" value="" size="18" readonly>
-                                <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
-                                <button type="submit" class="trash" name="delete-cart"><i data-feather="trash-2"></i></button>
+                                <button type="submit" class="trash" name="delete-cart-<?= $menu['id']; ?>"><i data-feather="trash-2"></i></button>
                             </div>
-                            
-                            
-                        </form>
+                        </div>
+                    
                         
             <?php
                     }
@@ -130,21 +130,18 @@
                     echo '<p class="empty">No items in your cart!</p>';
                 }
             ?>
-            
         </div>
+        <div class="final">
         <?php
             if (mysqli_num_rows($query) > 0) {
-                echo '<form action="proses-checkout.php" method="post"> 
-                    <h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>';
-
-                for ($i = 1; $i <= $row_total['amount'] + 1; $i++) {
-                    echo '<input type="hidden" name="quans[]" value="' . (isset($quans[$i]) ? $quans[$i] : 0) . '">';
-                }
+                echo '
+                    <h1>Total: <input type="text" class="input-total" id="total" value="" size="8" readonly></h1>';
 
                 echo '<button type="submit" class="btn-submit position-relative top-50 start-50 translate-middle" name="checkout">Checkout</button>
                     </form>';
             }
         ?>
+        </div>
     </section>
     <script>
       feather.replace()
