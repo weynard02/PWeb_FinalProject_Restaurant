@@ -44,6 +44,7 @@
             subtotal(id, price);
             total(id, price);
         }
+
         function subtotal(id, price) {
             var qty = parseInt(document.getElementById(id).value);
             var sub_total = qty*price;
@@ -86,9 +87,11 @@
                 $uid = $_SESSION['user_id'];
                 $sql = "SELECT * from cart where user_id='$uid'";
                 $query = mysqli_query($conn, $sql);
+                $quans = array();
                 if (mysqli_num_rows($query) > 0) {
                     while($cart = mysqli_fetch_array($query)) {
                         $pid = $cart['pid'];
+                        $quans[$cart['pid']] = $cart['quantity'];
                         $menu = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM products WHERE id = '$pid'"));
                         
             ?>
@@ -130,9 +133,16 @@
             
         </div>
         <?php
-            if (mysqli_num_rows($query) > 0){
-                echo '<h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>
-                    <a href="checkout.php" class="btn-submit position-relative top-50 start-50 translate-middle">Checkout</a>';
+            if (mysqli_num_rows($query) > 0) {
+                echo '<form action="proses-checkout.php" method="post"> 
+                    <h1>Total: &nbsp;<span>Rp.</span> <input type="text" class="input-total" id="total" value="" size="5" readonly></h1>';
+
+                for ($i = 1; $i <= $row_total['amount'] + 1; $i++) {
+                    echo '<input type="hidden" name="quans[]" value="' . (isset($quans[$i]) ? $quans[$i] : 0) . '">';
+                }
+
+                echo '<button type="submit" class="btn-submit position-relative top-50 start-50 translate-middle" name="checkout">Checkout</button>
+                    </form>';
             }
         ?>
     </section>

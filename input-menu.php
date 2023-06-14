@@ -103,7 +103,7 @@
                 <div class="flex">
                     <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
                     <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" name="delete-menu">Delete</button>
                 </div>
             </form>
             <?php

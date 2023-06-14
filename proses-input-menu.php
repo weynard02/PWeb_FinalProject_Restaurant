@@ -24,7 +24,7 @@ if (isset($_POST['input-menu'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
             mysqli_query($conn, "INSERT INTO products VALUES ('', '$name', '$category', '$price', '$filename')");
             $_SESSION['sukses'] = "Input menu succeed";
-            header('Location: menu.php');
+            header('Location: input-menu.php');
         } else {
             $_SESSION['failed'] = "Error cannot store image!";
             header('Location: input-menu.php');

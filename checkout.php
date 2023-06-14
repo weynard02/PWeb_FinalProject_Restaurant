@@ -94,7 +94,7 @@
             ?>
             <input type="hidden" id="<?= $menu['id'] ?>" name="qty" class="qty" min="1" max="99" value="<?= $cart['quantity']; ?>" maxlength="2" >       
             <p><span class="name"><?= $cart['quantity']; ?> x <?= $menu['name']; ?> </span> 
-            <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" size="5" value="" readonly></p>
+            <input type="text" class="sub-total" id="sub-total-<?= $menu['id'] ?>" size="7" value="" readonly></p>
                 
                         
             <?php
@@ -103,7 +103,7 @@
                 if (mysqli_num_rows($query) > 0){
                     ?>
                     <form action="" class="form-custom-2">
-                        <h5>Total: &nbsp; <input type="text" name="total" class="input-total" id="total" value="" size="5" readonly></h5>
+                        <h5>Total: &nbsp; <input type="text" name="total" class="input-total" id="total" value="" size="7" readonly></h5>
                         <div class="mb-3">
                             <select name="payment" class="form-select">
                                 <option selected value=""> Select Payment Method </option>
