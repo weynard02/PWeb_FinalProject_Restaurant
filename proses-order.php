@@ -9,12 +9,18 @@ if(isset($_POST['order'])) {
     $method = $_POST['method'];
     $total_price = $_POST['total'];
     $total_price = intval(substr($total_price, 3));
+    $total_products = "";
 
-    $res = mysqli_query($conn, "SELECT COUNT(*) FROM cart WHERE user_id = '$user_id'");
-    $row = mysqli_fetch_row($res);
-    $total_products = $row[0];
+    $cart_res = mysqli_query($conn, "SELECT * FROM cart WHERE user_id = '$user_id'");
+    $i = 0;
+    while ($cart_row = mysqli_fetch_assoc($cart_res)) {
+        $menu_row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM products WHERE id = '{$cart_row['pid']}'"));
+        if ($i > 0) $total_products = $total_products . ", " . $menu_row['name'] . " x " . $cart_row['quantity'];
+        else $total_products = $total_products . $menu_row['name'] . " x " . $cart_row['quantity'];
+        $i = $i + 1;
+    }
 
-    if ($user_id == '' || $method == '' || $total_price == 0 || $total_products == 0){
+    if ($user_id == '' || $method == '' || $total_price == 0 || $total_products == ''){
         $_SESSION['failed'] = "Checkout unsuccessfull!";
         header('Location: checkout.php');
         exit;
