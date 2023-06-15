@@ -102,10 +102,10 @@
                 } 
                 if (mysqli_num_rows($query) > 0){
                     ?>
-                    <form action="" class="form-custom-2">
+                    <form action="proses-order.php" class="form-custom-2" method="post">
                         <h5>Total: &nbsp; <input type="text" name="total" class="input-total" id="total" value="" size="7" readonly></h5>
                         <div class="mb-3">
-                            <select name="payment" class="form-select">
+                            <select name="method" class="form-select">
                                 <option selected value=""> Select Payment Method </option>
                                 <option value="OVO" class="payment-method ovo">OVO</option>
                                 <option value="Gopay" class="payment-method gopay">Gopay</option>
@@ -113,7 +113,7 @@
                             </select>
                         </div>
                     
-                        <button type="button" class="btn-submit-2">Order</button>
+                        <button type="submit" class="btn-submit-2" name="order">Order</button>
                     </form>
                 <?php
                 }
