@@ -13,7 +13,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SubWey SuRazYo</title>
+    <title>Menu Select</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,8 +41,17 @@
     <section id="products" class="products">
         <h1>Our <span>Menu</span></h1>
 
+        <div class="container">
+            <?php
+                if (isset($_SESSION['sukses'])) {
+                    echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+                    unset($_SESSION['sukses']);
+                }
+            ?>
+        </div>
         <div class="box-container">
             <?php
+                
                 $sql = "SELECT * from products order by category desc";
                 $query = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($query) > 0) {

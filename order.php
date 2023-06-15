@@ -17,7 +17,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SubWey SuRazYo</title>
+    <title>SubWey Yoraz</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,24 +43,34 @@
         include('navbar.php');
     ?>
     <section class="order">
-        <h1>Your Order</h1>
+        <h1>Your <span>Order</span></h1>
+        <div class="container">
     <?php
+        if (isset($_SESSION['sukses'])) {
+            echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+            unset($_SESSION['sukses']);
+        }
         $uid = $_SESSION['user_id'];
-        $sql = "SELECT * FROM orders where user_id = '$uid'";
+        $sql = "SELECT * FROM orders join users on orders.user_id = users.id where user_id = '$uid'";
         $rs = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($rs,MYSQLI_ASSOC);
     ?>
-    <div class="box">
-      <p>placed on : <span><?= $row['placed_on']; ?></span></p>
-      <p>name : <span><?= $row['name']; ?></span></p>
-      <p>email : <span><?= $row['email']; ?></span></p>
-      <p>number : <span><?= $row['number']; ?></span></p>
-      <p>address : <span><?= $row['address']; ?></span></p>
-      <p>payment method : <span><?= $row['method']; ?></span></p>
-      <p>your orders : <span><?= $row['total_products']; ?></span></p>
-      <p>total price : <span>$<?= $row['total_price']; ?>/-</span></p>
-      <p> payment status : <span style="color:<?php if($row['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $row['payment_status']; ?></span> </p>
+        </div>
+    <div class="order-details">
+        <h3>THANK YOU FOR <span>ORDER</span></h3>
+      <p>Placed on : <span><?= $row['placed_on']; ?></span></p>
+      <p>Name : <span><?= $row['name']; ?></span></p>
+      <p>Email : <span><?= $row['email']; ?></span></p>
+      <p>Number : <span><?= $row['number']; ?></span></p>
+      <p>Address : <span><?= $row['address']; ?></span></p>
+      <p>Payment Method : <span><?= $row['method']; ?></span></p>
+      <p>Your orders : <span><?= $row['total_products']; ?></span></p>
+      <p>Total price : <span>Rp.<?= $row['total_price']; ?></span></p>
+      <div class="ok">
+        <a href="index.php" class="btn-submit">OK</a>
+      </div>
    </div>
+        
     </section>
     <script>
       feather.replace()

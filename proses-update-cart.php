@@ -15,6 +15,6 @@ if (isset($_POST['update-cart'])) {
     else {
         mysqli_query($conn, "INSERT INTO cart VALUES ('', '$userid', '$pid', '$quantity')");
     }
-
+    $_SESSION['sukses'] = "Added to cart!";
     header('Location: menu.php');
 }

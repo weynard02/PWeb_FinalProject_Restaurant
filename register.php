@@ -21,21 +21,25 @@
 <body>
    
 <div class="form-container">
-    <form action="proses-register.php" method="post">
-        <h3>register now</h3>
+    <form class="form-custom" action="proses-register.php" method="post">
+        <h2>Register Now</h2>
 
-        <p>Name<sup>*</sup></p>
+        <label>Name<sup>*</sup></label>
         <input type="text" class="form-control" name="name" id="name" required placeholder="enter your name">
-        <p>Email<sup>*</sup></p>
+        <br>
+        <label>Email<sup>*</sup></label>
         <input type="text" class="form-control" name="email" id="email" required placeholder="enter your email">
-        <p>Password<sup>*</sup></p>
+        <br>
+        <label>Password<sup>*</sup></label>
         <input type="password" class="form-control" name="password" id="password" required placeholder="enter your password">   
-        <p>Address<sup>*</sup></p>
+        <br>
+        <label>Address<sup>*</sup></label>
         <input type="text" class="form-control" name="address" id="address" required placeholder="enter your address">
-        <p>Phone Number<sup>*</sup></p>
+        <br>
+        <label>Phone Number<sup>*</sup></label>
         <input type="text" class="form-control" name="number" id="number" required placeholder="enter your phone number">
 
-        <input type="submit" name="register" value="register" class="form-btn">
+        <input type="submit" name="register" value="register" class="form-btn btn-submit">
         <p>already have an account? <a href="login.php">login now</a></p>
 
         <?php

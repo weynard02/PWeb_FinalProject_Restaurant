@@ -23,6 +23,6 @@ if(isset($_POST['order'])) {
     mysqli_query($conn, "INSERT INTO orders (user_id, method, total_products, total_price) VALUES ('$user_id', '$method', '$total_products', '$total_price')");
     mysqli_query($conn, "DELETE FROM cart WHERE user_id = '$user_id'");
     $_SESSION['sukses'] = "Checkout successfull!";
-    header('Location: index.php');
+    header('Location: order.php');
 }
 ?>

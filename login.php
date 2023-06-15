@@ -21,14 +21,15 @@
 <body>
    
 <div class="form-container">
-    <form action="proses-login.php" method="post">
-        <h3>selamat datang</h3>
-        <p>Email<sup>*</sup></p>
+    <form action="proses-login.php" method="post" class="form-custom">
+        <h2>Selamat Datang</h2>
+        <label>Email<sup>*</sup></label>
         <input type="text" class="form-control" name="email" id="email" required placeholder="enter your email">
-        <p>Password<sup>*</sup></label>
+        <br>
+        <label>Password<sup>*</sup></label>
         <input type="password" class="form-control col-sm-2" name="password" id="password" required placeholder="enter your password">
 
-        <input type="submit" name="login" value="login" class="form-btn">
+        <input type="submit" name="login" value="login" class="form-btn btn-submit">
         <p>don't have an account? <a href="register.php">register now</a></p>
         <?php
             if (isset($_SESSION['failed'])) {

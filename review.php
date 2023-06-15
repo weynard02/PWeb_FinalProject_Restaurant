@@ -14,8 +14,8 @@
 
 <body>
     <div class="form-container">
-        <form action="proses-review.php" method="post">
-            <h3>Review our resto</h3>
+        <form class="form-custom" action="proses-review.php" method="post">
+            <h2>Review our <span>Resto</span></h2>
 
             <?php
                 include('config.php');
@@ -29,11 +29,11 @@
                     $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = '$id'"));
 
                     echo '<label for="description" class="form-label">Email anda: </label>';
-                    echo '<input class="form-control" type="text" value=' . $user['email'] . ' readonly>' ;
+                    echo '<input class="form-control" type="text" value=' . $user['email'] . ' readonly><br>' ;
                 }
             ?>
 
-            <p>Rate<sup>*</sup></p>
+            <label>Rate<sup>*</sup></label>
             <select name="rate" class="form-select">
                 <option>1</option>
                 <option>2</option>
@@ -41,11 +41,11 @@
                 <option>4</option>
                 <option>5</option>
             </select>
-
+            <br>
             <label for="message" class="form-label">Write your review message!</label>
             <textarea class="form-control" name="message" id="message" style="height: 100px"></textarea>
 
-            <input type="submit" name="review" value="Submit" class="form-btn">
+            <input type="submit" name="review" value="Submit" class="form-btn btn-submit">
         </form>
 
     </div>
