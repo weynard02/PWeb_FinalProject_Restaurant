@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-menu nav-link" aria-current="page" href="">Users</a>
+          <a class="nav-menu nav-link" aria-current="page" href="admin-user.php">Users</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="input-menu.php">Menu</a>
