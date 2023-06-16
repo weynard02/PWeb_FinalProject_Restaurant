@@ -53,6 +53,7 @@
         $uid = $_SESSION['user_id'];
         $sql = "SELECT * FROM orders join users on orders.user_id = users.id where user_id = '$uid'";
         $rs = mysqli_query($conn, $sql);
+        mysqli_data_seek($rs, mysqli_num_rows($rs) - 1);
         $row = mysqli_fetch_array($rs,MYSQLI_ASSOC);
     ?>
         </div>
