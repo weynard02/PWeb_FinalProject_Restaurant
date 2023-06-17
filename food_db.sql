@@ -73,7 +73,13 @@ CREATE TABLE `users` (
 
 
 INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `address`, `role`) VALUES
-(1, 'admin', 'admin@gmail.com', '123456789', 'pwadmin', 'Jalan Admin', 'admin');
+(1, 'admin', 'admin@gmail.com', '123456789', 'pwadmin', 'Jalan Admin', 'admin'),
+(2, 'wey', 'weynard@gmail.com', '081923412230', '123', 'Jalan Arif Rahman Hakim', 'user');
+
+INSERT INTO `products` (`id`, `name`, `category`, `price`, `image`) VALUES
+(1, 'Burger Ayam', 'Food', 15000, 'burger-1.png'),
+(2, 'Pizza', 'Food', 150000, 'pizza-1.png'),
+(3, 'Coffee', 'Drink', 8200, 'drink-2.png');
 
 
 COMMIT;

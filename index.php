@@ -49,9 +49,9 @@
 
       <div class="row">
         <div class="col-lg-6 col-md-6 about-img">
-          <img src="img/tentang-kami.jpg" class="img-fluid" />
+          <img src="img/ttg-kami.jpg" class="img-fluid" />
         </div>
-        <div class="col-lg-6 col-md-6 content">
+        <div class="col-lg-5 col-md-5 content">
           <h3>The Story of Success</h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo in
@@ -61,6 +61,12 @@
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
             voluptate accusantium ex fugit incidunt similique consectetur
             tenetur vitae quos voluptatibus.
+          </p>
+          <p>
+            Sed in venenatis odio, venenatis consectetur diam. Donec vitae risus vel tellus convallis dignissim. 
+            Donec vulputate efficitur urna, elementum rhoncus metus volutpat non. Aenean sagittis ante non nibh vulputate posuere. 
+            Cras fermentum diam elit, ut fermentum arcu rutrum quis. Proin sit amet viverra libero, ornare dapibus diam. 
+            Ut sit amet mi mauris. Duis sed est quis velit lobortis facilisis.
           </p>
         </div>
       </div>
@@ -92,7 +98,7 @@
     <!-- Menu Section end -->    
 
     <!-- Review Section start -->
-    <section id="review" class="review reveal">
+    <section id="review" class="review">
       <div class="card text-center">
         <div class="card-body">
           <h2 class="card-title">Review <span>Us</span></h2>
