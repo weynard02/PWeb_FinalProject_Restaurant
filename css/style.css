@@ -160,14 +160,14 @@
   }
   /* About Section */
   .about,
-  .menu,
+  .products,
   .review {
     padding: 8rem 7% 1.4rem;
     margin-bottom: 3rem;
   }
   
   .about h2,
-  .menu h2,
+  .products h2,
   .review h2 {
     text-align: center;
     font-size: 2.6rem;
@@ -176,7 +176,7 @@
   }
   
   .about h2 span,
-  .menu h2 span,
+  .products h2 span,
   .review h2 span {
     color: var(--primary);
   }
@@ -189,11 +189,11 @@
   }
   
   /* Menu Section */
-  .menu h2 {
+  .products h2 {
     margin-bottom: 2rem;
     
   }
-  .menu p {
+  .products p {
     text-align: center;
     max-width: 30rem;
     margin: auto;

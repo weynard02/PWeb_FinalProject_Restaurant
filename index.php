@@ -68,21 +68,25 @@
     <!-- About Section end -->
 
     <!-- Menu Section start -->
-    <section id="menu" class="menu reveal">
+    <section id="products" class="products reveal">
       <h2>Our <span>Highlights</span></h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque sunt porro voluptatem ab ipsa inventore itaque illo aut et quam!</p>
-      <div class="card-group">
-        <!-- <?php
-          // $sql = "SELECT * from products";
-          // $query = mysqli_query($db, $sql);
-          // while ($product = mysqli_fetch_array($query)) {
-          //   echo '<div class="card">
-          //     <img src="/img/'.$product['image'].'" class="card-img-top">
-          //     <div class="card-body">
-          //       <h5 class="card-title">'.$product['name'].'</h5>
-          //    </div>';
-          // }
-        ?> -->
+      <div class="box-container">
+            <?php
+                
+                $sql = "SELECT * from products order by category desc limit 5";
+                $query = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($query) > 0) {
+                    while($menu = mysqli_fetch_array($query)) {
+            ?>
+            <div class="box">
+                <img src="product-img/<?= $menu['image']; ?>">   
+                <div class="name"><?= $menu['name']; ?></div>
+                <div class="category"><?= $menu['category']; ?></div>
+            </div>
+            <?php
+                    }
+                  }
+            ?>
       </div>
     </section>
     <!-- Menu Section end -->    
