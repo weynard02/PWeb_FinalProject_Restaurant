@@ -73,7 +73,7 @@
       <div class="box-container">
             <?php
                 
-                $sql = "SELECT * from products order by category desc limit 5";
+                $sql = "SELECT * from products order by category desc limit 4";
                 $query = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($query) > 0) {
                     while($menu = mysqli_fetch_array($query)) {
