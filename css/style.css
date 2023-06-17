@@ -160,14 +160,14 @@
   }
   /* About Section */
   .about,
-  .products,
+  .menu,
   .review {
     padding: 8rem 7% 1.4rem;
     margin-bottom: 3rem;
   }
   
   .about h2,
-  .products h2,
+  .menu h2,
   .review h2 {
     text-align: center;
     font-size: 2.6rem;
@@ -176,7 +176,7 @@
   }
   
   .about h2 span,
-  .products h2 span,
+  .menu h2 span,
   .review h2 span {
     color: var(--primary);
   }
@@ -189,11 +189,11 @@
   }
   
   /* Menu Section */
-  .products h2 {
+  .menu h2 {
     margin-bottom: 2rem;
     
   }
-  .products p {
+  .menu p {
     text-align: center;
     max-width: 30rem;
     margin: auto;
@@ -201,6 +201,34 @@
     line-height: 1.6;
   }
 
+  .menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    align-items: flex-start;
+    gap:1.5rem;
+  }
+  
+   .menu .box-container .box {
+      border: .2rem solid black;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+   }
+  
+   .menu .box-container .box img{
+      height: 10rem;
+      width: 100%;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+  
+    .menu .box-container .box .name{
+      font-size: 2.3rem;
+      color:var(--secondary);
+      font-weight: 600;
+      margin:1rem 0;
+   }
 
   /* Review Section*/
   .review h2 {

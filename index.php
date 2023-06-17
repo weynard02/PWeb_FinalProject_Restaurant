@@ -38,7 +38,7 @@
     <section class="hero" id="home">
       <main class="content">
         <h1>Our handsome menu: <br><span>Spicy Chicken Burger</span></h1>
-        <a href="#" class="cta">Order now</a>
+        <a href="menu.php" class="cta">Order now</a>
       </main>
     </section>
     <!-- Hero Section end -->
@@ -68,7 +68,7 @@
     <!-- About Section end -->
 
     <!-- Menu Section start -->
-    <section id="products" class="products reveal">
+    <section id="menu" class="menu reveal">
       <h2>Our <span>Highlights</span></h2>
       <div class="box-container">
             <?php
@@ -97,11 +97,15 @@
         <div class="card-body">
           <h2 class="card-title">Review <span>Us</span></h2>
           <p class="card-text">I know you like it!</p>
-          <a href="#" class="cta">Rate Us!</a>
+          <a href="review.php" class="cta">Rate Us!</a>
         </div>
       </div>
     </section>
       <!-- Review Section end -->
+
+    <footer>
+      
+    </footer>
     <script>
       feather.replace()
     </script>
