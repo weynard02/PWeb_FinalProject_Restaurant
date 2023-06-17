@@ -621,6 +621,14 @@
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
   }
 
+
+  footer {
+    padding-bottom: 20px;
+    padding-top: 10px;
+    background-color: #c46b1e;
+    color: white;
+    text-align: center;
+  }
   
   /* Bootstraps override */
 

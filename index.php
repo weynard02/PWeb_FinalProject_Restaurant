@@ -104,7 +104,7 @@
       <!-- Review Section end -->
 
     <footer>
-      
+      <p>&#169; Weynard, Razan, Yoyo</p>
     </footer>
     <script>
       feather.replace()
