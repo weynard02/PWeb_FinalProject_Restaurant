@@ -46,6 +46,17 @@
     <?php
         include('admin-navbar.php');
     ?>
+    <div class="container">
+    <?php
+            if (isset($_SESSION['sukses'])) {
+                echo '<div class="alert alert-warning" role="alert">
+                '.$_SESSION['sukses'].'
+                </div>';
+                unset($_SESSION['sukses']);
+            }
+        ?>
+    </div>
+            
     <form class="form-custom" action="proses-input-menu.php" method="post" enctype="multipart/form-data">
         <h2>Input <span>Menu</span></h2>
         <div class="mb-3">
@@ -103,7 +114,8 @@
                 <div class="flex">
                     <div class="price"><span>Rp.</span><?= $menu['price']; ?></div>
                     <input type="hidden" name="pid" value="<?= $menu['id']; ?>"/>
-                    <button type="submit" class="btn btn-danger" name="delete-menu">Delete</button>
+                    <a href="edit-menu.php?edit-menu=<?= $menu['id']; ?>" class="btn-submit" name="edit-menu">Edit</a>
+                    <button type="submit" class="btn-submit" name="delete-menu">Delete</button>
                 </div>
             </form>
             <?php
