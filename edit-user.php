@@ -32,23 +32,31 @@
 <div class="form-container">
     <form class="form-custom" action="proses-update-user.php" method="post">
         <h2>Edit</h2>
-
+        <?php
+            if (isset($_GET['edit'])) {
+                $uid = $_GET['edit'];
+                $sql = "SELECT * FROM users where id = '$uid'";
+                $rs = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_array($rs,MYSQLI_ASSOC);
+            }
+        ?>
+        <input type="hidden" name="uid" value="<?= $row['id']; ?>">
         <label>Name<sup>*</sup></label>
-        <input type="text" class="form-control" name="name" id="name" required placeholder="enter your name">
+        <input type="text" class="form-control" name="name" id="name" required placeholder="enter your name" value="<?= $row['name']; ?>">
         <br>
         <label>Email<sup>*</sup></label>
-        <input type="text" class="form-control" name="email" id="email" required placeholder="enter your email">
+        <input type="text" class="form-control" name="email" id="email" required placeholder="enter your email" value="<?= $row['email']; ?>">
         <br>
         <label>Password<sup>*</sup></label>
-        <input type="password" class="form-control" name="password" id="password" required placeholder="enter your password">   
+        <input type="password" class="form-control" name="password" id="password" required placeholder="enter your password" value="<?= $row['password']; ?>">   
         <br>
         <label>Address<sup>*</sup></label>
-        <input type="text" class="form-control" name="address" id="address" required placeholder="enter your address">
+        <input type="text" class="form-control" name="address" id="address" required placeholder="enter your address" value="<?= $row['address']; ?>">
         <br>
         <label>Phone Number<sup>*</sup></label>
-        <input type="text" class="form-control" name="number" id="number" required placeholder="enter your phone number">
+        <input type="text" class="form-control" name="number" id="number" required placeholder="enter your phone number" value="<?= $row['number']; ?>">
 
-        <input type="submit" name="register" value="register" class="form-btn btn-submit">
+        <input type="submit" name="update" value="Update" class="form-btn btn-submit">
 
         <?php
             if (isset($_SESSION['failed'])) {

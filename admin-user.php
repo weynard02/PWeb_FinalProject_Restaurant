@@ -57,10 +57,18 @@
 <body>
     <?php include('admin-navbar.php')?>
     <section class="see-review">
-
+        <div class="container">
+            <?php
+                if (isset($_SESSION['sukses'])) {
+                    echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+                    unset($_SESSION['sukses']);
+                }
+            ?>
+        </div>
         <h1>Users</h1>
 
         <div class="box-container">
+            
             <?php
             $sql = "SELECT * from users";
             $query = mysqli_query($conn, $sql);
@@ -73,8 +81,9 @@
                 <p> email : <span><?= $rev['email']; ?></span> </p>
                 <p> password : <span><?= $rev['password']; ?></span> </p>
                 <p> address : <span><?= $rev['address']; ?></span> </p>
-                <a href="admin-user.php?delete=<?= $rev['id']; ?>" class="btn-delete" onclick="return confirm('delete this user?');">Delete</a>
                 <a href="edit-user.php?edit=<?= $rev['id']; ?>" class="btn-submit">Edit</a>
+                <a href="admin-user.php?delete=<?= $rev['id']; ?>" class="btn-delete" onclick="return confirm('delete this user?');">Delete</a>
+                
             </div>
             <?php
                 }
