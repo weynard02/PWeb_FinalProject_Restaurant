@@ -29,6 +29,12 @@ if (isset($_POST['register'])){
         exit;
     }
 
+    if (strlen($number) > 20) {
+        $_SESSION['failed'] = "Max for Phone Number is 20 letters";
+        header('Location: register.php');
+        exit;
+    }
+
     mysqli_query($conn, "INSERT INTO users (name, email, number, password, address, role) VALUES ('$name', '$email', '$number', '$password', '$address', 'user')");
     $_SESSION['sukses'] = "User register suceed! Please login!";
     header('Location: login.php');
