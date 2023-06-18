@@ -13,7 +13,7 @@ if (isset($_POST['update-cart'])) {
         mysqli_query($conn, "UPDATE cart SET quantity = quantity + '$quantity' WHERE user_id = '$userid' AND pid = '$pid'");
     }
     else {
-        mysqli_query($conn, "INSERT INTO cart VALUES ('', '$userid', '$pid', '$quantity')");
+        mysqli_query($conn, "INSERT INTO cart (user_id, pid, quantity) VALUES ('$userid', '$pid', '$quantity')");
     }
     $_SESSION['sukses'] = "Added to cart!";
     header('Location: menu.php');

@@ -29,7 +29,7 @@ if (isset($_POST['register'])){
         exit;
     }
 
-    mysqli_query($conn, "INSERT INTO users VALUES ('', '$name', '$email', '$number', '$password', '$address', 'user')");
+    mysqli_query($conn, "INSERT INTO users (name, email, number, password, address, role) VALUES ('$name', '$email', '$number', '$password', '$address', 'user')");
     $_SESSION['sukses'] = "User register suceed! Please login!";
     header('Location: login.php');
 }

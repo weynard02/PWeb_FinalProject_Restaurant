@@ -22,7 +22,7 @@ if (isset($_POST['input-menu'])) {
         }
         $destination = $directory . $filename;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
-            mysqli_query($conn, "INSERT INTO products VALUES ('', '$name', '$category', '$price', '$filename')");
+            mysqli_query($conn, "INSERT INTO products (name, category, price, image) VALUES ('$name', '$category', '$price', '$filename')");
             $_SESSION['sukses'] = "Input menu succeed";
             header('Location: input-menu.php');
         } else {

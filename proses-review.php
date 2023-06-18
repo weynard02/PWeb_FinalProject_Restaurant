@@ -14,7 +14,7 @@ if (isset($_POST['review'])){
         exit;
     }
     
-    mysqli_query($conn, "INSERT INTO reviews VALUES ('', '$userid', '$rate', '$message')");
+    mysqli_query($conn, "INSERT INTO reviews (user_id, rate, message) VALUES ('$userid', '$rate', '$message')");
     $_SESSION['sukses'] = "Review succeed";
     header('Location: index.php');
 }
