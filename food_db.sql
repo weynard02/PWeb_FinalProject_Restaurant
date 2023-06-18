@@ -38,7 +38,7 @@ CREATE TABLE `reviews` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `user_id` int(100) NOT NULL,
   `rate` int(100) NOT NULL,
-  `message` varchar(500) NOT NULL,
+  `message` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,7 +64,7 @@ CREATE TABLE `users` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `number` varchar(10) NOT NULL,
+  `number` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `address` varchar(500) NOT NULL,
   `role` varchar(10) NOT NULL,
