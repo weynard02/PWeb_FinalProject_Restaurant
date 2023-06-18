@@ -33,8 +33,11 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i data-feather="user"></i>&nbsp; Hi, '. $user['name'] .
               '</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="admin-home.php">Admin Menu</a></li>
+              <ul class="dropdown-menu">';
+
+              if ($user['role'] == 'admin') 
+                echo '<li><a class="dropdown-item" href="admin-home.php">Admin Menu</a></li>';
+                echo'
                 <li><a class="dropdown-item" href="proses-logout.php">Log out</a></li>
               </ul>
             </li>
