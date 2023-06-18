@@ -34,6 +34,12 @@
     <?php
       include('navbar.php');
     ?>
+        <?php
+            if (isset($_SESSION['sukses'])) {
+                echo "<div class='alert alert-success' role='alert'>".$_SESSION['sukses']."</div>";
+                unset($_SESSION['sukses']);
+            }
+        ?>
     <!-- Hero Section start -->
     <section class="hero" id="home">
       <main class="content">
