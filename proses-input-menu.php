@@ -13,7 +13,7 @@ if (isset($_POST['input-menu'])) {
 
     if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
         $_SESSION['failed'] = "Invalid image extension!";
-        header('Location: tolil.php');
+        header('Location: input-menu.php');
         exit;
     } else {
         $directory = 'product-img/';
