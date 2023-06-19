@@ -22,7 +22,7 @@ if (isset($_POST['submit-edit-menu'])) {
 
         if ($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png') {
             $_SESSION['failed'] = "Invalid image extension!";
-            header('Location: tolil.php');
+            header('Location: edit-menu.php'); 
             exit;
         }
 
